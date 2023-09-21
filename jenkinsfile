@@ -1,0 +1,73 @@
+pipeline{
+    agent any
+    	environment {
+          SCANNER_HOME = tool name: 'Test_Sonar', 
+          type: 'hudson.plugins.sonar.SonarRunnerInstallation'
+          SONAR_PROJECT_KEY = 'Tanu_DevTestOps' 
+          SONAR_SERVER_URL = 'http://localhost:9000/' 
+          SONAR_LOGIN = 'sqa_e51c02d6846b755035c6f242b27ad881310be3ab' 
+		  notifyEmail ="tanu.gupta02@nagarro.com"
+	}
+    tools{
+        maven 'maven_home'
+    }
+    triggers {
+    	cron('0 06 * * *')
+  	}
+    
+    stages{
+        stage("code checkout"){
+            steps{
+            bat "echo hello"
+            }
+        }   
+
+        stage("code build"){
+            steps{
+             bat "mvn clean test"
+            }
+        }
+        stage("unit test"){
+            steps{
+            bat "mvn test "
+            }
+        }
+stage('SonarQube Analysis') {
+    steps {
+        script {
+            def scannerPath = "${env.SCANNER_HOME}\\bin"
+            def sonarScannerCmd = "${scannerPath}\\sonar-scanner.bat"
+            def sonarCmd = "${sonarScannerCmd} -Dsonar.projectKey=${env.SONAR_PROJECT_KEY} -Dsonar.host.url=${env.SONAR_SERVER_URL} -Dsonar.login=${env.SONAR_LOGIN} -Dsonar.java.binaries=target/classes"
+
+ 
+
+            bat "set PATH=\"${scannerPath};%PATH%\" && ${sonarCmd}"
+        }
+    }
+}
+stage('plublis artifactory'){
+    steps{
+        rtMavenDeployer(
+            id:'deployer',
+            serverId:'nagpleanr@artifactory',
+            releaseRepo:'LearnPipeline',
+            snapshotRepo:'LearnPipeline'
+        )
+        rtMavenRun(
+            pom:'pom.xml',
+            goals:'clean install',
+            deployerId:'deployer'
+        )
+        rtPublishBuildInfo(
+            serverId:'nagpleanr@artifactory'
+        )
+    }
+}
+
+}
+    post{
+        success{
+            bat "echo success"
+            }
+        }
+}
