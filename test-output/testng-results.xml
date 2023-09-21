@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="6" passed="6" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2023-09-11T13:18:45 IST" name="Suite" finished-at="2023-09-11T13:19:03 IST" duration-ms="18293">
+    <groups>
+    </groups>
+    <test started-at="2023-09-11T13:18:45 IST" name="Test" finished-at="2023-09-11T13:19:03 IST" duration-ms="18293">
+      <class name="test.ApiTest">
+        <test-method signature="AuthorizationTokenPost()[pri:0, instance:test.ApiTest@6f15d60e]" started-at="2023-09-11T13:18:45 IST" name="AuthorizationTokenPost" finished-at="2023-09-11T13:18:50 IST" duration-ms="5323" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AuthorizationTokenPost -->
+        <test-method signature="GetMethodTest()[pri:1, instance:test.ApiTest@6f15d60e]" started-at="2023-09-11T13:18:50 IST" name="GetMethodTest" finished-at="2023-09-11T13:18:53 IST" duration-ms="2874" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- GetMethodTest -->
+        <test-method signature="PostMethodTest()[pri:2, instance:test.ApiTest@6f15d60e]" started-at="2023-09-11T13:18:53 IST" name="PostMethodTest" finished-at="2023-09-11T13:18:56 IST" duration-ms="2783" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- PostMethodTest -->
+        <test-method signature="GetPostByIdTest()[pri:3, instance:test.ApiTest@6f15d60e]" started-at="2023-09-11T13:18:56 IST" name="GetPostByIdTest" finished-at="2023-09-11T13:18:58 IST" duration-ms="2353" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- GetPostByIdTest -->
+        <test-method signature="UpdateMethodTest()[pri:4, instance:test.ApiTest@6f15d60e]" started-at="2023-09-11T13:18:58 IST" name="UpdateMethodTest" finished-at="2023-09-11T13:19:01 IST" duration-ms="2434" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- UpdateMethodTest -->
+        <test-method signature="DeleteMethodTest()[pri:5, instance:test.ApiTest@6f15d60e]" started-at="2023-09-11T13:19:01 IST" name="DeleteMethodTest" finished-at="2023-09-11T13:19:03 IST" duration-ms="2356" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- DeleteMethodTest -->
+      </class> <!-- test.ApiTest -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
+</testng-results>
